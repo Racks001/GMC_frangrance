@@ -1,0 +1,565 @@
+ html {
+      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Prevents horizontal scroll */
+      background-color: black;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+      padding: 1rem 1.5rem; /* Equivalent to p-4 */
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 50; /* Equivalent to z-50 */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-lg */
+      display: flex; /* Equivalent to flex */
+      justify-content: space-between; /* Equivalent to justify-between */
+      align-items: center; /* Equivalent to items-center */
+    }
+
+    .navbar-brand {
+      color: white;
+      font-size: 1.5rem; /* Equivalent to text-2xl */
+      font-weight: bold; /* Equivalent to font-bold */
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .nav-links {
+      display: flex; /* Equivalent to flex */
+      list-style: none; /* Removes bullet points */
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 1.5rem; /* Equivalent to space-x-6 (for items, here applied as left margin) */
+    }
+
+    .nav-links a {
+      color: white; /* Equivalent to text-white */
+      text-decoration: none;
+      padding: 0.5rem 0; /* Equivalent to py-2 */
+      transition: color 0.3s ease; /* Equivalent to transition */
+    }
+
+    .nav-links a:hover {
+      color: #f5e9dc; /* Equivalent to hover:text-[#f5e9dc] */
+    }
+
+    .nav-button {
+      background-color: white; /* Equivalent to bg-white */
+      color: black; /* Equivalent to text-black */
+      font-weight: 600; /* Equivalent to font-semibold */
+      padding: 0.75rem 1.5rem; /* Equivalent to px-6 py-3 */
+      border-radius: 9999px; /* Equivalent to rounded-full */
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease, scale 0.3s ease; /* Equivalent to transition transform */
+      display: inline-block; /* Ensure button padding works */
+    }
+
+    .nav-button:hover {
+      background-color: #e2e8f0; /* Equivalent to hover:bg-gray-200 */
+      transform: scale(1.05); /* Equivalent to hover:scale-105 */
+    }
+
+    /* Mobile Menu Styles */
+    .mobile-menu-button {
+      color: white;
+      font-size: 1.5rem; /* Equivalent to text-2xl */
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none; /* Hidden on desktop, Equivalent to md:hidden */
+    }
+
+    .mobile-nav-links {
+      display: none; /* Hidden by default */
+      flex-direction: column; /* Equivalent to flex flex-col */
+      width: 100%; /* Equivalent to w-full */
+      background-color: rgba(0, 0, 0, 0.9); /* Equivalent to bg-black bg-opacity-90 */
+      position: absolute; /* Needed for top: 100% */
+      top: 100%; /* Position below the main navbar */
+      left: 0;
+      padding-bottom: 0.5rem; /* Equivalent to pb-2 */
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Similar to shadow-lg */
+    }
+
+    .mobile-nav-links.active {
+      display: flex; /* Show when active */
+    }
+
+    .mobile-nav-links a {
+      color: white; /* Equivalent to text-white */
+      text-decoration: none;
+      padding: 0.75rem 1.5rem; /* Equivalent to px-4 py-2 */
+      display: block; /* Equivalent to block */
+      transition: background-color 0.3s ease; /* Equivalent to transition */
+    }
+
+    .mobile-nav-links a:hover {
+      background-color: #333; /* Equivalent to hover:bg-gray-800 */
+    }
+
+    .mobile-nav-links .nav-button {
+      width: calc(100% - 3rem); /* Full width minus padding, similar to w-full */
+      margin: 0.5rem 1.5rem; /* Equivalent to my-2 mx-4 (roughly) */
+      text-align: left; /* Aligns button text to left */
+      padding: 0.75rem 1.5rem;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (min-width: 768px) { /* Equivalent to md: */
+      .nav-links {
+        display: flex; /* Show desktop links on medium screens and up */
+      }
+      .mobile-menu-button {
+        display: none; /* Hide hamburger button on medium screens and up */
+      }
+      .mobile-nav-links {
+        display: none !important; /* Force hide mobile menu on desktop */
+      }
+    }
+
+    /* Section Common Styles */
+    section {
+      padding: 4rem 1.5rem; /* Equivalent to py-16 px-6 */
+      position: relative; /* For background images/videos */
+      overflow: hidden; /* To contain background elements */
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding-left: 5rem; /* Equivalent to md:px-20 */
+        padding-right: 5rem; /* Equivalent to md:px-20 */
+      }
+    }
+
+    /* Hero Section */
+    .hero-section {
+      height: 100vh; /* Equivalent to h-screen */
+      width: 100vw; /* Equivalent to w-screen */
+      position: relative;
+      overflow: hidden; /* Equivalent to overflow-hidden */
+      padding-top: 5rem; /* To prevent content from being hidden by fixed navbar */
+      display: flex; /* For content centering */
+      align-items: center; /* For content centering */
+      justify-content: center; /* For content centering */
+      text-align: center; /* For content centering */
+    }
+
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; /* Equivalent to w-full */
+      height: 100%; /* Equivalent to h-full */
+      object-fit: cover; /* Equivalent to object-cover */
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6); /* Equivalent to bg-black/60 */
+    }
+
+    .hero-content {
+      position: relative; /* Equivalent to relative */
+      z-index: 10; /* Equivalent to z-10 */
+      color: white; /* Equivalent to text-white */
+      display: flex; /* Equivalent to flex */
+      flex-direction: column; /* Equivalent to flex-col */
+      align-items: center; /* Equivalent to items-center */
+      justify-content: center; /* Equivalent to justify-center */
+      text-align: center; /* Equivalent to text-center */
+      height: 100%; /* Take full height of parent flex container */
+    }
+
+    .hero-title {
+      font-size: 3rem; /* Equivalent to text-5xl */
+      font-weight: bold; /* Equivalent to font-bold */
+      margin-bottom: 1rem; /* Equivalent to mb-4 */
+      letter-spacing: 0.05em; /* Equivalent to tracking-wide */
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Equivalent to drop-shadow-lg */
+      font-family: 'Playfair Display', serif;
+      color: #f5e9dc;
+    }
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 4.5rem; /* Equivalent to md:text-7xl */
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem; /* Equivalent to text-xl */
+      margin-bottom: 1rem; /* Equivalent to mb-4 */
+      font-weight: 300; /* Equivalent to font-light */
+      font-style: italic; /* Equivalent to italic */
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Equivalent to drop-shadow-md */
+      font-family: 'Poppins', sans-serif;
+      color: #e6d3bd;
+    }
+    @media (min-width: 768px) {
+      .hero-subtitle {
+        font-size: 1.5rem; /* Equivalent to md:text-2xl */
+      }
+    }
+
+    .hero-text {
+      font-size: 1.125rem; /* Equivalent to text-lg */
+      margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+      font-style: italic; /* Equivalent to italic */
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Equivalent to drop-shadow-md */
+      font-family: 'Poppins', sans-serif;
+      color: #e6d3bd;
+    }
+
+    .hero-button {
+      padding: 0.75rem 1.5rem; /* Equivalent to px-6 py-3 */
+      background-color: white; /* Equivalent to bg-white */
+      color: black; /* Equivalent to text-black */
+      font-weight: 600; /* Equivalent to font-semibold */
+      border-radius: 9999px; /* Equivalent to rounded-full */
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Equivalent to transition transform */
+      display: inline-block; /* Required for padding and transform */
+    }
+
+    .hero-button:hover {
+      background-color: #e2e8f0; /* Equivalent to hover:bg-gray-200 */
+      transform: scale(1.05); /* Equivalent to hover:scale-105 */
+    }
+
+    /* About Section */
+    .about-section {
+      background-color: #f5e9d7; /* Equivalent to bg-[#f5e9d7] */
+      color: #374151; /* Equivalent to text-gray-800 */
+    }
+
+    .section-title {
+      font-size: 2.25rem; /* Equivalent to text-4xl */
+      font-weight: bold; /* Equivalent to font-bold */
+      text-align: center; /* Equivalent to text-center */
+      margin-bottom: 2rem; /* Equivalent to mb-8 */
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Equivalent to drop-shadow-md */
+      letter-spacing: 0.025em; /* Equivalent to tracking-wide */
+      font-family: 'Playfair Display', serif;
+    }
+
+    .about-text {
+      text-align: center; /* Equivalent to text-center */
+      max-width: 48rem; /* Equivalent to max-w-3xl */
+      margin: 0 auto; /* Equivalent to mx-auto */
+      font-size: 1.125rem; /* Equivalent to text-lg */
+      line-height: 1.75; /* Equivalent to leading-relaxed */
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Shop Section */
+    .shop-section {
+        background-color: #1a1a1a; /* Darker background for shop */
+        color: white;
+    }
+
+    .product-grid {
+      display: grid; /* Equivalent to grid */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Equivalent to md:grid-cols-3, gap-8 */
+      gap: 2rem; /* Equivalent to gap-8 */
+      max-width: 75rem; /* Equivalent to max-w-5xl (or adjust as needed) */
+      margin: 0 auto; /* Equivalent to mx-auto */
+    }
+
+    .product-card {
+      background-color: #000000; /* Black background for cards */
+      border-radius: 0.75rem; /* Equivalent to rounded-2xl */
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Equivalent to shadow-lg */
+      text-align: center;
+      padding-bottom: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Equivalent to transition */
+    }
+
+    .product-card:hover {
+      transform: translateY(-0.3125rem); /* Equivalent to hover:-translate-y-1 */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Equivalent to hover:shadow-xl */
+    }
+
+    .product-image {
+      width: 100%; /* Equivalent to w-full */
+      height: 18.75rem; /* Equivalent to h-72 or adjust */
+      object-fit: cover; /* Equivalent to object-cover */
+      margin-bottom: 1rem; /* Equivalent to mb-4 */
+    }
+
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.875rem; /* Equivalent to text-3xl */
+      font-weight: bold; /* Equivalent to font-bold */
+      margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+      color: #f5e9dc;
+    }
+
+    .product-description {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem; /* Equivalent to text-base */
+      color: #ccc; /* Lighter text color */
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-price {
+      font-size: 1.5rem; /* Equivalent to text-2xl */
+      font-weight: bold; /* Equivalent to font-bold */
+      color: #fff;
+      margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+    }
+
+    .add-to-cart-button {
+      background-color: #f5e9dc; /* Light beige button */
+      color: #333;
+      font-weight: 600; /* Equivalent to font-semibold */
+      padding: 0.75rem 1.5rem; /* Equivalent to px-6 py-3 */
+      border-radius: 9999px; /* Equivalent to rounded-full */
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Equivalent to transition transform */
+      display: inline-block;
+    }
+
+    .add-to-cart-button:hover {
+      background-color: #e6d3bd; /* Slightly darker beige on hover */
+      transform: scale(1.05); /* Equivalent to hover:scale-105 */
+    }
+
+    /* Product Showcase (Collection) Section */
+    .collection-section {
+      color: white; /* Equivalent to text-white */
+    }
+
+    .collection-background-image {
+      position: absolute;
+      inset: 0; /* Equivalent to inset-0 */
+      width: 100%; /* Equivalent to w-full */
+      height: 100%; /* Equivalent to h-full */
+      object-fit: cover; /* Equivalent to object-cover */
+      z-index: 0; /* Equivalent to z-0 */
+    }
+
+    .collection-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6); /* Equivalent to bg-black/60 */
+      z-index: 0;
+    }
+
+    .collection-content {
+      position: relative; /* Equivalent to relative */
+      z-index: 10; /* Equivalent to z-10 */
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Equivalent to md:grid-cols-3 gap-8 */
+      gap: 2rem; /* Equivalent to gap-8 */
+    }
+
+    .collection-card {
+      position: relative; /* Equivalent to relative */
+      overflow: hidden; /* Equivalent to overflow-hidden */
+      border-radius: 1rem; /* Equivalent to rounded-2xl */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Equivalent to shadow-lg */
+      height: 24rem; /* Equivalent to h-96 */
+    }
+
+    .collection-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      transition: transform 0.3s ease; /* Equivalent to transition */
+    }
+
+    .collection-card:hover .collection-video {
+      transform: scale(1.05); /* Equivalent to group-hover:scale-105 */
+    }
+
+    .collection-card-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Equivalent to bg-black/50 */
+      z-index: 10;
+    }
+
+    .collection-card-content {
+      position: relative;
+      z-index: 20; /* Equivalent to z-20 */
+      padding: 1.5rem; /* Equivalent to p-6 */
+      color: white; /* Equivalent to text-white */
+      height: 100%; /* Equivalent to h-full */
+      display: flex; /* Equivalent to flex */
+      flex-direction: column; /* Equivalent to flex-col */
+      justify-content: flex-end; /* Equivalent to justify-end */
+    }
+
+    .collection-card-title {
+      font-size: 1.5rem; /* Equivalent to text-2xl */
+      font-weight: bold; /* Equivalent to font-bold */
+      margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      background-color: #f5e9dc; /* Equivalent to bg-[#f5e9dc] */
+      color: black; /* Equivalent to text-black */
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Equivalent to md:grid-cols-2 gap-8 */
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background-color: rgba(255, 255, 255, 0.8); /* Equivalent to bg-white/80 */
+      backdrop-filter: blur(8px); /* Equivalent to backdrop-blur-md */
+      padding: 1.5rem; /* Equivalent to p-6 */
+      border-radius: 0.75rem; /* Equivalent to rounded-xl */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-lg */
+      transition: transform 0.5s ease, box-shadow 0.5s ease; /* Equivalent to transform transition duration-500 */
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.05); /* Equivalent to hover:scale-105 */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Equivalent to hover:shadow-2xl */
+    }
+
+    .testimonial-text {
+      margin-bottom: 1rem; /* Equivalent to mb-4 */
+      font-style: italic; /* Equivalent to italic */
+      font-size: 1.125rem; /* Equivalent to text-lg */
+    }
+
+    .testimonial-author {
+      font-weight: 600; /* Equivalent to font-semibold */
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background-color: #f5e9dc; /* Equivalent to bg-[#f5e9dc] */
+      color: black; /* Equivalent to text-black */
+    }
+
+    .contact-form {
+      max-width: 32rem; /* Equivalent to max-w-xl */
+      margin: 0 auto; /* Equivalent to mx-auto */
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; /* Equivalent to space-y-4 */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%; /* Equivalent to w-full */
+      padding: 0.75rem; /* Equivalent to p-3 */
+      border-radius: 0.5rem; /* Equivalent to rounded-lg */
+      background-color: white; /* Equivalent to bg-white */
+      border: 1px solid #d1d5db; /* Equivalent to border border-gray-300 */
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: black;
+      box-shadow: 0 0 0 2px black; /* Equivalent to focus:ring-2 focus:ring-black */
+    }
+
+    .contact-form textarea {
+      min-height: 5rem; /* Equivalent to rows="4" in visual height */
+    }
+
+    .contact-submit-button {
+      width: 100%; /* Equivalent to w-full */
+      padding: 0.75rem 1.5rem; /* Equivalent to py-3 */
+      background-color: black; /* Equivalent to bg-black */
+      color: white; /* Equivalent to text-white */
+      font-weight: 600; /* Equivalent to font-semibold */
+      border-radius: 0.5rem; /* Equivalent to rounded-lg */
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Equivalent to transition */
+    }
+
+    .contact-submit-button:hover {
+      background-color: #374151; /* Equivalent to hover:bg-gray-800 */
+    }
+
+    .social-links {
+      margin-top: 2.5rem; /* Equivalent to mt-10 */
+      display: flex; /* Equivalent to flex */
+      justify-content: center; /* Equivalent to justify-center */
+      gap: 1.5rem; /* Equivalent to gap-6 */
+    }
+
+    .social-link {
+      font-size: 1.5rem; /* Equivalent to text-2xl */
+      transition: transform 0.3s ease; /* Equivalent to transition transform */
+      color: inherit; /* Inherit color, then override for specific brands */
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      transform: scale(1.1); /* Equivalent to hover:scale-110 */
+    }
+
+    .social-link.facebook { color: #1877f2; } /* Equivalent to text-blue-600 */
+    .social-link.instagram { color: #e4405f; } /* Equivalent to text-pink-500 */
+    .social-link.twitter { color: #1da1f2; } /* Equivalent to text-blue-400 */
+    .social-link.linkedin { color: #0a66c2; } /* Equivalent to text-blue-700 */
+
+    /* Footer */
+    .footer {
+      background-color: black; /* Equivalent to bg-black */
+      text-align: center; /* Equivalent to text-center */
+      padding: 1.5rem; /* Equivalent to py-6 */
+      color: #6b7280; /* Equivalent to text-gray-500 */
+    }
+
+    /* Custom Animations (already in your code, kept as is) */
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeUp {
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+    .animate-fadeIn {
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+    .animation-delay-300 { animation-delay: 0.3s; }
+    .animation-delay-500 { animation-delay: 0.5s; }
+    .animation-delay-700 { animation-delay: 0.7s; }
+    .animation-delay-900 { animation-delay: 0.9s; }
+  
